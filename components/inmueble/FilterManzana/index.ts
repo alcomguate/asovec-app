@@ -1,0 +1,1 @@
+export { FilterManzana } from "./FilterManzana";
