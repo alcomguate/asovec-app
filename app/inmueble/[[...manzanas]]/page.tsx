@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Card, CardHeader, CardBody, CardFooter, Image, Button } from '@nextui-org/react';
-
+import { useRouter } from "next/navigation";
 interface ManzanaProps {
     params: {
         manzana: string[];
@@ -33,6 +33,7 @@ export default function Manzana(props: ManzanaProps) {
 
     const searchParams = useSearchParams();
     const manzana = searchParams.get("manzana");
+    const router = useRouter();
 
     const [inmuebleData, setInmuebleData] = useState<any[]>([]);
 
@@ -67,7 +68,7 @@ export default function Manzana(props: ManzanaProps) {
                             height={225}
                         />
                         <CardFooter className="absolute bg-white/30 bottom-0 border-t border-zinc-100/50 z-10 justify-between">
-                            <Button color="primary" className="text-white font-bold text-center w-full">
+                            <Button color="primary" className="text-white font-bold text-center w-full" onPress={() => router.push(`/pago?manzana=${inmueble.manzana}&lote=${inmueble.lote}`)}>
                                 Registrar pago
                             </Button>
                         </CardFooter>
