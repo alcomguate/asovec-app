@@ -159,6 +159,7 @@ export const PagoMantenimientoModal = ({ manzana, lote }: { manzana?: string; lo
                                             isRequired
                                             className="max-w-[284px]"
                                             label="Fecha de boleta de depósito"
+                                            name="fechaPago"
                                             defaultValue={new CalendarDate(
                                                 new Date().getFullYear(),
                                                 new Date().getMonth() + 1,
